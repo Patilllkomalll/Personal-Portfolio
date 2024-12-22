@@ -1,6 +1,14 @@
 const navLinks = document.querySelectorAll('header nav a');
 const logoLink = document.querySelector('.logo');
 const sections = document.querySelectorAll('section');
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('header nav');
+
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('bx-x');
+
+    navbar.classList.toggle('active');
+});
 
 
 const activePage = () => {
@@ -25,6 +33,10 @@ const activePage = () => {
     sections.forEach(section => {
         section.classList.remove('active');
     });
+
+    menuIcon.classList.remove('bx-x');
+
+    navbar.classList.remove('active');
 }
 
 navLinks.forEach((link, idx) => {
@@ -89,13 +101,13 @@ const activePortfolio = () => {
 }
 
 arrowRight.addEventListener('click', () => {
-    if (index < 4) {
+    if (index < 1) {
         index++;
         arrowLeft.classList.remove('disabled');
 
     }
     else {
-        index = 5;
+        index = 1;
         arrowRight.classList.add('disabled');
     }
 
@@ -103,7 +115,7 @@ arrowRight.addEventListener('click', () => {
 });
 
 arrowLeft.addEventListener('click', () => {
-    if (index > 1) {
+    if (index > 0) {
         index--;
         arrowRight.classList.remove('disabled');
 
